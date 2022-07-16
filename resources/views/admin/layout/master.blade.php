@@ -18,12 +18,12 @@
     <link rel="icon" type="image/png" sizes="16x16" href="{{asset('adminCss/assets/images/favicon.png')}}">
     <!-- Custom CSS -->
     <link href="{{asset('adminCss/assets/libs/chartist/dist/chartist.min.css')}}" rel="stylesheet">
-   
+
     {{-- {{asset('css/bootstrap.min.css')}} --}}
     <link href="{{asset('adminCss/dist/css/style.min.css')}}" rel="stylesheet">
     <link href="{{asset('adminCss/assets/up.css')}}" rel="stylesheet">
 
-   
+
 </head>
 
 <body>
@@ -62,7 +62,7 @@
 
                                 <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
                                 <!-- Dark Logo icon -->
-                            
+
                                 <!-- Light Logo icon -->
                                 <img src="{{asset('adminCss/assets/images/logo1.png')}}" alt="homepage" class="light-logo" />
                             </b>
@@ -72,7 +72,7 @@
                             </span>
                         </a>
                     </div>
-                   
+
                 </div>
                 <!-- ============================================================== -->
                 <!-- End Logo -->
@@ -86,7 +86,7 @@
                         <!-- Search -->
                         <!-- ============================================================== -->
                         <li class="nav-item search-box">
-                            <a class="nav-link waves-effect waves-dark" href="{{route("admin.show")}}">
+                            <a class="nav-link waves-effect waves-dark" href="{{route("admin.pShow")}}">
                              <span class="company_name">Company Name </span>
 
                             </a>
@@ -103,7 +103,7 @@
                             <a id="logout" class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic" role="button" href="#">
                                 <i class="ti-user me-1 ms-1"></i>
                             </a>
-                            
+
                                 <div id="logout_div" style="display: none">
                                     <form method="POST" action="{{route('logout')}}">
                                         @csrf
@@ -114,9 +114,9 @@
                                         display: inline;"> Logout</button>
                                         </form>
                                  </div>
-                               
+
                         </li>
-                       
+
                         <!-- ============================================================== -->
                         <!-- User profile and search -->
                         <!-- ============================================================== -->
@@ -137,14 +137,14 @@
                 <nav class="sidebar-nav">
                     <ul id="sidebarnav" >
                                  <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{route('admin.show')}}"
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{route('admin.pShow')}}"
                                 aria-expanded="false">
                                 <i class="bi bi-info-circle"></i>
                                 <span class="hide-menu">Dashboard </span>
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{route('admin.show')}}"
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{route('admin.pShow')}}"
                                 aria-expanded="false">
                                 <i class="bi bi-info-circle"></i>
                                 <span class="hide-menu">Products</span>
@@ -152,7 +152,7 @@
                         </li>
 
                         <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{route('admin.show')}}"
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{route('admin.pShow')}}"
                                 aria-expanded="false">
                                 <i class="bi bi-info-circle"></i>
                                 <span class="hide-menu">Order</span>
@@ -160,7 +160,7 @@
                         </li>
 
                         <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{route('admin.adminShow')}}"
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{route('admin.accShow')}}"
                                 aria-expanded="false">
                                 <i class="bi bi-info-circle"></i>
                                 <span class="hide-menu">Create Admin Account </span>
@@ -236,9 +236,9 @@ var clicks = 0;
                     $('#logout_div').hide();
                      clicks=0;
                 }
-           
+
             });
-                        
+
 
         });
 

@@ -16,15 +16,15 @@ class deleteController extends Controller
             {
                 $delete_row=model1::find($id);
                 $delete_row->delete();
-                return redirect('/admin/show_products_info')->with('message', '4');
+                return redirect()->route('admin.pShow')->with('message', 'deleted');
             }
             elseif($model=="adminAccountModel"){
                 $delete_row=adminAccountModel::find($id);
                 $delete_row->delete();
-                return redirect('/admin/show_admin_account_info')->with('message', '4');
+                return redirect()->route('admin.accShow')->with('message', 'deleted');
             }
 
-       
-        
+
+
     }
 }

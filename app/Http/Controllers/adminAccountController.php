@@ -15,12 +15,12 @@ class adminAccountController extends Controller
 
     function show()
     {
-       
-        
+
+
             $db_data = adminAccountModel::all();;
             return view('admin.adminAccount',compact('db_data'));
 
-       
+
     }
 
 
@@ -28,14 +28,14 @@ class adminAccountController extends Controller
     function insert(request $request)
     {
 
-        
+
         request()->validate([
                             'name' => 'required',
                             'email' => 'required',
                             'role' => 'required',
                             'password' => 'required'
                             ],
-                    
+
                             [
                             'name.required' => 'অনুগ্রহ করে নাম লিখুন',
                             'email.required' => 'অনুগ্রহ করে ই-মেইল লিখুন',
@@ -48,19 +48,19 @@ class adminAccountController extends Controller
 
             if($user===null)
             {
-                
+
                 $insert = new adminAccountModel;
-        
+
                 $insert->name= $request->name;
                 $insert->email= $request->email;
                 $insert->role= $request->role;
                 $insert->password= $request->password;
 
                 $insert->save();
-                return redirect('/admin/show_admin_account_info')->with('message', '1');
+                return redirect()->route('admin.accShow')->with('message', 'inserted');
 
             }else{
-                 return redirect('/admin/show_admin_account_info')->with('message', '0');
+                 return redirect()->route('admin.accShow')->with('message', 'This email is existed.');
                  }
 
 
@@ -71,7 +71,7 @@ class adminAccountController extends Controller
 
     function update(request $request)
     {
-       
+
 
         request()->validate([
             'name' => 'required',
@@ -79,7 +79,7 @@ class adminAccountController extends Controller
             'role' => 'required',
             'password' => 'required'
             ],
-    
+
             [
             'name.required' => 'অনুগ্রহ করে নাম লিখুন',
             'email.required' => 'অনুগ্রহ করে ই-মেইল লিখুন',
@@ -90,24 +90,24 @@ class adminAccountController extends Controller
 
 
         $id = $request->id;
-            
+
 
 
         $update = adminAccountModel::find($id);
-        
+
         $update->name= $request->name;
         $update->email= $request->email;
         $update->role= $request->role;
         $update->password= $request->password;
-        
-       
+
+
         $update->save();
 
-        return redirect('/admin/show_admin_account_info')->with('message', '5');
-            
-            
-        
-    
+        return redirect()->route('admin.accShow')->with('message', 'updated');
+
+
+
+
     }
 
 

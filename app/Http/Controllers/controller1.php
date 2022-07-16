@@ -4,11 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use App\Models\parlament_seat;
 use App\Models\model1;
 use Symfony\Contracts\Service\Attribute\Required;
-use Session;
-Session_start();
+
 
 class controller1 extends Controller
 {
@@ -67,10 +65,10 @@ class controller1 extends Controller
                     $insert['img']=$img_name;
                     }
                 $insert->save();
-                return redirect('/admin/show_products_info')->with('message', '1');
+                return redirect()->route('admin.pShow')->with('message', 'inserted');
 
             }else{
-                 return redirect('/admin/show_products_info')->with('message', '0');
+                 return redirect()->route('admin.pShow')->with('message', "This Product's Name is existed");
                  }
 
 
@@ -133,7 +131,7 @@ class controller1 extends Controller
         $update->save();
         unlink('storage/images/products/'.$delete_img);
 
-        return redirect('/admin/show_products_info')->with('message', '5');
+        return redirect('/admin/show_products_info')->route('admin.pShow')->with('message', 'updated');
 
 
 
